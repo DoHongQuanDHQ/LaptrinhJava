@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, tr, td{
+            border: 0.5px solid #999;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="load()">
+    <input type="radio" id="locSV" name="haha" onclick="timSV()"> Điểm Đỗ
+    <input type="radio" id="locDiem" name="haha" onclick="locDiem()"> Điểm Trượt
+    <table>
+        <thead>
+            <td>STT</td>
+            <td colspan="2">Họ và tên</td>
+            <td>Điểm JS1</td>
+            <td>Điểm JS2</td>
+            <td>Điểm trung bình</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn</td>
+                <td>Bình</td>
+                <td>8</td>
+                <td>9</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Vũ Thị</td>
+                <td>Hạnh</td>
+                <td>7</td>
+                <td>7</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Trần Văn</td>
+                <td>Bình</td>
+                <td>4</td>
+                <td>5</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function load(){
+            var trElement = document.querySelectorAll("tbody tr");
+            console.log(trElement)
+            for (var i = 0; i < trElement.length; i++){
+                var diemjs1 = trElement[i].children[3].innerHTML;
+                var diemjs2 = trElement[i].children[4].innerHTML;
+                trElement[i].lastElementChild.innerHTML = (Number(diemjs1) + Number(diemjs2)) / 2;
+            }
+        }
+        function timSV(){
+            var trElement = document.querySelectorAll("tbody tr");
+            for(var i = 0 ; i < trElement.length ; i++){
+                var diemTB = trElement[i].lastElementChild.innerHTML;
+                if(Number(diemTB) >= 5){
+                    trElement[i].style.background = 'yellow';
+                }else{
+                    trElement[i].style.background = 'none';
+                }
+            }
+        }
+        // Lọc điểm
+        function locDiem(){
+            var trElement = document.querySelectorAll("tbody tr");
+            for(var i = 0 ; i < trElement.length ; i++){
+                var diemTB = trElement[i].lastElementChild.innerHTML;
+                if(Number(diemTB) < 5){
+                    trElement[i].style.background = 'red';
+                }else{
+                    trElement[i].style.background = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

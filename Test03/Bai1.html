@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin: 5px;
+            font-size: 18px;
+            margin-left: 10px;
+            text-align: center;
+            font-variant: unset;
+            height: 30px;
+            width: 70px;
+            
+        }
+        input{
+            padding: 3.2px;
+            margin: 7px;
+        }
+        label{
+            color: black;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+        form{
+            border: solid 1px;
+            height: 190px;
+            width: 200px;
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Họ và tên:</label>
+        <input type="text" id="name" name="name" required minlength="8">
+        <br>
+        <label>Giới tính:</label>
+        <input type="radio" id="male" name="gender" value="male" required> Nam
+        <input type="radio" id="female" name="gender" value="female" required> Nữ
+        <br>
+        <label for="phone">Số điện thoại:</label>
+        <input type="text" id="phone" name="phone" required minlength="10">
+        <br>
+        <button type="submit" id="submitBtn">Gửi</button>
+      </form>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const form = document.getElementById('myForm');
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+      
+            const nameInput = document.getElementById('name').value;
+            const genderInputs = document.querySelectorAll('input[name="gender"]:checked');
+            const phoneInput = document.getElementById('phone').value;
+      
+  
+            if (nameInput.length < 8) {
+              alert('Họ và tên phải có ít nhất 8 ký tự');
+            } else if (genderInputs.length === 0) {
+              alert('Vui lòng chọn giới tính');
+            } else if (phoneInput.length !== 10) {
+              alert('Số điện thoại phải có 10 ký tự');
+            } else {
+
+              form.submit();
+            }
+          });
+        });
+      </script>
+      
+</body>
+</html>

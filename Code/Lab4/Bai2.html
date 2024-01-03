@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đồng Hồ Đếm Ngược Thời Gian</h2>
+    <h1 id="countdown">00:00:00</h1>
+
+    <script>
+        function countdown(hours, minutes, seconds) {
+            // Tính tổng số giây
+            let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+            function updateCountdown() {
+                // Chuyển đổi tổng số giây thành giờ, phút và giây
+                let hoursLeft = Math.floor(totalSeconds / 3600);
+                let minutesLeft = Math.floor((totalSeconds % 3600) / 60);
+                let secondsLeft = totalSeconds % 60;
+
+                // Định dạng lại đồng hồ đếm ngược
+                let formattedTime = `${hoursLeft.toString().padStart(2, '0')}:${minutesLeft.toString().padStart(2, '0')}:${secondsLeft.toString().padStart(2, '0')}`;
+                document.getElementById('countdown').innerText = formattedTime;
+
+                // Giảm tổng số giây đi 1
+                totalSeconds--;
+
+                // Nếu hết giờ, dừng chương trình
+                if (totalSeconds === -1) {
+                    clearTimeout(t);
+                    return;
+                }
+
+                // Gọi lại hàm sau 1 giây
+                t = setTimeout(updateCountdown, 1000);
+            }
+
+            // Bắt đầu đồng hồ đếm ngược
+            let t = setTimeout(updateCountdown, 0);
+        }
+
+        // Chạy đồng hồ đếm ngược với thời gian ban đầu là 1 giờ, 30 phút, 0 giây
+        countdown(0, 33, 10);
+    </script>
+</body>
+</html>

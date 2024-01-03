@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body onload="auto()">
+    <img src="img/0.JPG" id="anh">
+    <hr>
+    <button onclick="first()"> First</button>
+    <button onclick="last()">Last </button>
+    <button onclick="next()"> Next</button>
+    <button onclick="pre()"> Prew </button>
+    <button onclick="start()"> Start</button>
+    <button onclick="stop()"> Stop</button>
+    <script>
+        var img = [];
+        for(var i=0 ; i<6; i++){
+            img[i] = new Image();
+            img[i].src = "img/"+ i+ ".jpg";
+        }
+        var index = 0;
+
+        // Nút first()
+        function first(){
+            index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        // Nút last()
+        function last(){
+            index = img.length -1;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        // Nút next()
+        function next(){
+            index ++;
+            if( index >= img.length)
+                index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        // Nút pre()
+        function pre(){
+            index--;
+            if(index <0)
+            index = img.length-1;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        // Nút start()
+        function start(){
+            index ++;
+            if(index == img.length)
+            index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+            t = setTimeout("start()", 100);
+        }
+        // Nút stop()
+        function stop(){
+            clearTimeout(t);
+        }
+        // auto
+        // function auto(){
+        //     setInterval("start()",1000);
+        // }
+    </script>
+</body>
+</html>

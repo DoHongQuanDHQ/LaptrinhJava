@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        var bieuthuc = "";
+        function tt(pt){
+            bieuthuc =bieuthuc + pt;
+
+        }
+        function th(x){
+            bieuthuc=bieuthuc + x;
+
+        }
+        function thucHien(){
+            var kq = eval (bieuthuc);
+            bieuthuc="";
+            alert('Ket qua la = ' + kq);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Máy tính</h1>
+
+   <button onclick="th(7)">7</button>
+   <button onclick="th(8)">8</button>
+   <button onclick="th(9)">9</button>
+   <button onclick="tt('+')">+</button>
+   <br>
+   <button onclick="th(4)">4</button>
+   <button onclick="th(5)">5</button>
+   <button onclick="th(6)">6</button>
+   <button onclick="tt('-')">-</button>
+   <br>
+   <button onclick="th(1)">1</button>
+   <button onclick="th(2)">2</button>
+   <button onclick="th(3)">3</button>
+   <button onclick="tt('*')">*</button>
+   <br>
+   <button onclick="th(0)">0</button>
+   <button onclick="Lamlai()">AC</button>
+   <button onclick="thucHien()">=</button>
+   <button onclick="tt('/')">/</button>
+</body>
+</html>

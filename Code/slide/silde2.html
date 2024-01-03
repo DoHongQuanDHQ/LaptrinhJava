@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>BÁN HÀNG</h2>
+    <select name="" id="price" class="price">
+        <option value="0">Chọn mức giá</option>
+        <option value="1">Dưới 500</option>
+        <option value="2">Trên 500</option>
+    </select>
+    <hr>
+    <div class="bang">
+        <table id="sp" border="1" onclick="tongtien()">
+            <tr>
+                <td><input type="checkbox" id="chk" onclick="ht()"></td>
+                <th>Hàng Hóa</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+            <tr class="lv2">
+                <td><input type="checkbox" id="chk" onclick="ht1()"></td>
+                <td>Iphone 9</td>
+                <td>700</td>
+                <td><input type="number" min="0" step="1" id="ip"></td>
+                <td id="ttip"></td>
+            </tr>
+            <tr class="lv1">
+                <td><input type="checkbox" id="chk" onclick="ht2()"></td>
+                <td>Samsung</td>
+                <td>450</td>
+                <td><input type="number" min="0" step="1" id="ss"></td>
+                <td id="ttss"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Tổng tiền</th>
+                <th id="tongtien"></th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function ht1() {
+            var ip = document.getElementById("ip");
+            var ttip = 700 * ip.value;
+            document.getElementById("ttip").innerText = +ttip;
+        }
+
+        function ht2() {
+            var ss = document.getElementById("ss");
+            var ttss = 450 * ss.value;
+            document.getElementById("ttss").innerText = +ttss;
+        }
+
+        function tongtien() {
+            var ip = document.getElementById("ip");
+            var ss = document.getElementById("ss");
+            var tt = 700 * ip.value + 450 * ss.value;
+            document.getElementById("tongtien").innerText = +tt;
+        }
+    </script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#price').change(function() {
+                var val = $(this).val();
+                $('#sp tr').each(function(index, tr) {
+                    var price = $(tr).find('td:eq(2)').text();
+                    if (val == 0) {
+                        $('tr').show();
+                    } else if (val == 1 && price >= 0 && price <= 400) {
+                        $('.lv1').show();
+                        $('.lv2').hide();
+                    } else if (val == 2 && price >= 450) {
+                        $('.lv1').hide();
+                        $('.lv2').show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+     <!-- <script>
+        var a = prompt("Nhap so a: ");
+        var b = prompt("Nhap so b: ");
+        var o = prompt("+,-,*,/");
+
+        if(isNaN(a) == false && isNaN(b) == false)
+            switch(o){
+                case '+':
+                    var kq = parseInt(a)+parseInt(b);
+                    alert = ("Cong: " + kq);
+                    break;
+                case '-':
+                    var kq = parseInt(a)-parseInt(b);
+                    alert = ("Tru: " + kq);
+                    break;
+                case '*':
+                    var kq = parseInt(a)*parseInt(b);
+                    alert = ("Nhan: " + kq);
+                    break;
+                case '/':
+                    var kq = parseInt(a)/parseInt(b);
+                    alert = ("Thuong: " + kq);
+                    break;
+
+                default:
+                    alert(o + "Khong Phai La Toan Tu: ");
+                   
+            }
+        
+    </script> -->
+
+    <!-- <script>
+        for(i =1; 1<=9;i++){
+            for(j =1;j<=10; j++)
+            document.write(i + 'x' + j + '='+ i*j + '<br>' );
+            document.write('<br>');
+
+        }
+    </script> -->
+
+    <script>
+        var bieuthuc = "";
+        function tt(pt){
+            bieuthuc =bieuthuc + pt;
+
+        }
+        function th(x){
+            bieuthuc=bieuthuc + x;
+
+        }
+        function thucHien(){
+            var kq = eval (bieuthuc);
+            bieuthuc="";
+            alert('Ket qua la = ' + kq);
+        }
+
+        function thoiGian(){
+            var today = new Date();
+            var gio = today.getHours();
+            var phut = today.getMinutes();
+            var giay = today.getSeconds();
+            setTimeout("thoiGian()",1000);
+            var thongTin = gio +":" + phut + ":" + giay;
+            document.getElementById('time').innerHTML= thongTin;
+
+        }
+    </script>
+</head>
+<body>
+    <label id="time"></label>
+    <script>
+        thoiGian();
+    </script>
+
+   <h1>Máy tính</h1>
+   <button onclick="th(7)">7</button>
+   <button onclick="th(8)">8</button>
+   <button onclick="th(9)">9</button>
+   <button onclick="tt('+')">+</button>
+   <br>
+   <button onclick="th(4)">4</button>
+   <button onclick="th(5)">5</button>
+   <button onclick="th(6)">6</button>
+   <button onclick="tt('-')">-</button>
+   <br>
+   <button onclick="th(1)">1</button>
+   <button onclick="th(2)">2</button>
+   <button onclick="th(3)">3</button>
+   <button onclick="tt('*')">*</button>
+   <br>
+   <button onclick="th(0)">0</button>
+   <button onclick="Lamlai()">AC</button>
+   <button onclick="thucHien()">=</button>
+   <button onclick="tt('/')">/</button>
+   
+
+</body>
+</html>

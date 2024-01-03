@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="baithem.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Validate Form</h1>
+    <form  name = "myForm" onsubmit = "return(validate());">
+        <table cellspacing = "2" cellpadding = "2" border = "2">
+           
+           <tr>
+              <td align = "right">Name</td>
+              <td><input type = "text" name = "Name" /></td>
+           </tr>
+           
+           <tr>
+              <td align="right">EMail</td>
+              <td><input type = "text" name = "EMail" /></td>
+           </tr>
+           
+           <tr>
+              <td align = "right">Zip Code</td>
+              <td><input type = "text" name = "Zip" /></td>
+           </tr>
+           
+           <tr>
+              <td align = "right">Country</td>
+              <td>
+                 <select name = "Country">
+                    <option value = "-1" selected>Choose country</option>
+                    <option value = "1">VietNam</option>
+                    <option value = "2">Japan</option>
+                    <option value = "3">Indonesia</option>
+                 </select>
+              </td>
+           </tr>
+           
+           <tr>
+              <td align = "right"></td>
+              <td><input class="a" type = "submit" value = "Submit" /></td>
+           </tr>
+           
+        </table>
+     </form>      
+    <script src="bai3_them.js"></script> 
+</body>
+</html>

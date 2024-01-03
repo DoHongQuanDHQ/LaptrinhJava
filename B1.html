@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+    <style>
+        form {
+            width: 400px;
+            border: 1px solid #999;
+            height: 250px;
+            border-radius: 5px;
+        }
+
+        button,
+        h3,
+        .form-group {
+            margin: 10px 100px;
+        }
+
+        #name,
+        #gioiTinh,
+        #sdt {
+            outline: none;
+            height: 25px;
+        }
+
+        lable {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        button {
+            border: 0, 5px solid #999;
+            transition: 0.6s ease;
+            height: 35px;
+            width: 80px;
+            outline: none;
+            border-radius: 5px;
+            background: rgb(32, 117, 170);
+            color: #fff;
+        }
+
+        button:hover {
+            background: green;
+            color: #fff;
+        }
+
+        .tb1,
+        .tb2,
+        .tb3 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post" onsubmit="return false;">
+        <div class="form-group">
+            <lable>Họ và tên</lable> <br>
+            <input type="text" id="name">
+            <div class="tb1"></div>
+        </div>
+        <div class="form-group">
+            <lable>Gioi tính</lable>
+            <input type="radio" class="gioiTinh"> Nam
+            <input type="radio" class="gioiTinh"> Nữ
+            <div class="tb2"></div>
+        </div>
+        <div class="form-group">
+            <lable>Số điện thoại</lable> <br>
+            <input type="text" id="sdt">
+            <div class="tb3"></div>
+        </div>
+        <button onclick="return kiemTra()">Gửi</button>
+    </form>
+    <script>
+        function kiemTra() {
+            var name = document.getElementById('name');
+            if (name.value.length < 8 || name.value == "") {
+                name.style.border = '1px solid red';
+                document.querySelector('.tb1').innerHTML = 'Tối thiểu 8 kí tự';
+                return false;
+            }else{
+                name.style.border = '1px solid #999';
+                document.querySelector('.tb1').innerHTML = '';
+            }
+            var check = 0;
+            var gioiTinh = document.querySelectorAll(".gioiTinh");
+            for(var i = 0 ; i < gioiTinh.length ; i++){
+                if(gioiTinh[i].checked == true){
+                    check++;
+                }
+            }
+            if(check == 0){
+                document.querySelector('.tb2').innerHTML = 'Bạn phải chọn giới tính';
+                return false;
+            }else{
+                document.querySelector('.tb2').innerHTML = '';
+            }
+
+            var sdt = document.querySelector("#sdt");
+            if(Number(sdt.value.length) !== 10 || Number(sdt.value) < 0){
+                document.querySelector('.tb3').innerHTML = 'Nhập sai số điện thoại';
+                sdt.style.border = '1px solid red';
+                return false;
+            }else{
+                sdt.style.border = '1px solid #333';
+                document.querySelector('.tb3').innerHTML = '';
+            }
+            alert("Bạn đã đăng ký thành công");
+            return true;
+        }
+        
+    </script>
+</body>
+
+</html>

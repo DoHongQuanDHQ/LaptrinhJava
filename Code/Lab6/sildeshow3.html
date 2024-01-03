@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+        
+        p {
+            margin-left: 22%;
+            background-color: rgba(165, 42, 42, 0.377);
+            height: 20px;
+            width: 5%;
+            text-align: center;
+            line-height: 23px;
+            font-weight: bolder;
+        }
+        
+        input {
+            position: absolute;
+            bottom: 50%;
+            height: 50px;
+            width: 90px;
+            border: none;
+            background-color: rgba(128, 128, 128, 0.473);
+            color: white;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body onload="auto()">
+    <img src="img/0.JPG" id="anh">
+    <br>
+    <input type="button" value="<" onclick="pre()">
+    <input type="button" value=">" onclick="next()" style="position: absolute; right: 47.4%;">
+    <p>Ảnh<label id="soanh">1</label>/6</p>
+    <script>
+        var img = [];
+        var index = 0;
+        for (var i = 0; i < 6; i++) {
+            img[i] = new Image();
+            img[i].src = "img/" + i + ".jpg";
+        }
+        //Nút next()
+        function next() {
+            index++;
+            if (index >= img.length)
+                index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+            document.getElementById("soanh").innerText = index + 1;
+        }
+        //Nút pre()
+        function pre() {
+            index--;
+            if (index < 0)
+                index = img.length - 1;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+            document.getElementById("soanh").innerText = index + 1;
+        }
+        //Auto()
+        function auto() {
+            setInterval("next()", 1000)
+        }
+    </script>
+</body>
+
+</html>

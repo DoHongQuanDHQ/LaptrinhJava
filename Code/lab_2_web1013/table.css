@@ -1,0 +1,18 @@
+.dangky{
+    line-height: 30px;
+    font-weight:bold;
+}
+.dangky p span{
+    color: brown;
+}
+.nut{
+    height: 35px;
+    padding: 0 25px;
+    background: black; color:aliceblue;
+}
+.xoa{
+    background: red;
+}
+input[tyle="text"]{
+    height: 30px;
+}

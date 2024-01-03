@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h2>Chọn giới tính của bạn</h2>
+        <input type="radio" name="gender"  value="Nam" /> Nam <br/>
+        <input type="radio" name="gender"  value="Nữ"  /> Nữ <br/>
+        <input type="button" id="btn1" value="Hiển thị"/>
+ 
+        <script>
+            document.getElementById("btn1").onclick = function ()
+            {var checkbox = document.getElementsByName("gender");
+            for (var i = 0; i < checkbox.length; i++){
+            if (checkbox[i].checked === true){
+                alert(checkbox[i].value);
+                }
+            }
+            };
+        </script>
+</body>
+</html>

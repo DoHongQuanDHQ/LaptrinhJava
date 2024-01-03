@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="baithem.css">
+    <title>Document</title>
+    <script>
+        function validate() {
+            var name = document.myform.name.value;
+            var password = document.myform.password.value;
+            var repassword = document.myform.repassword.value;
+            // var reemail= document.myform.email.value;
+            // var re=new RegExp("\\w+@\\w+(\\.\\w+){1,2}","g");
+            var status = false;
+            //kt name
+
+            if (name.length < 1) {
+                document.getElementById("ht").innerHTML =
+                    " <img src='uncheck.png'/> Please enter your name";
+                status = false;
+            } else if (!isNaN(name.value)) {
+                document.getElementById("ht").innerHTML =
+                    " <img src='uncheck.png'/> Please enter your name";
+                status = false;
+            } else {
+                document.getElementById("ht").innerHTML =
+                    " <img src='check.png'/>";
+                status = true;
+            }
+            //kiểm tra email
+            var reemail = document.myform.email.value;
+            var re = new RegExp("\\w+@\\w+(\\.\\w+){1,2}", "g");
+            if (!reemail.match(re)) {
+                document.getElementById("emaile").innerHTML =
+                    " <img src='uncheck.png'/> Please enter your email";
+                status = false;
+            } else {
+                document.getElementById("emaile").innerHTML =
+                    " <img src='check.png'/>";
+                status = true;
+            }
+            //ktra pass
+            if (password.length < 8) {
+                document.getElementById("pass").innerHTML =
+                    " <img src='uncheck.png'/> Password must be at least 8 char long";
+                status = false;
+            } else {
+                document.getElementById("pass").innerHTML =
+                    " <img src='check.png'/>";
+            }
+            //ktra repass
+            if (password != repassword || repassword.length < 6) {
+                document.getElementById("repass").innerHTML =
+                    " <img src='uncheck.png'/> rePassword must be same";
+                status = false;
+            } else {
+                document.getElementById("repass").innerHTML =
+                    " <img src='check.png'/>";
+            }
+
+            return status;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myform" action="#" onsubmit="return validate()">
+        <table>
+            <tr>
+                <td>Enter Name:</td>
+                <td><input type="text" name="name" /> <span id="ht"></span></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email" /> <span id="emaile"></span></td>
+            </tr>
+            <tr>
+                <td>Enter Password:</td>
+                <td><input type="password" name="password" /> <span id="pass"></span></td>
+            </tr>
+            <tr>
+                <td>confirm Password:</td>
+                <td><input type="password" name="repassword" /> <span id="repass"></span></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="a" type="submit" value="ĐĂNG KÝ" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

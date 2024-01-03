@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 980px;
+            margin: 0 auto;
+            font-family: Tahoma;
+        }
+        .box {
+            margin: 70px auto;
+            border: 1px solid gray;
+            width: 400px;
+            height: 300px;
+        }
+
+        .head {
+            height: 30px;
+            margin: -20px 0px 20px 0px;
+            background-color: rgb(99, 99, 244);
+        }
+
+        .head h2 {
+            text-align: center;
+            color: white;
+        }
+
+        .box-content {
+            padding: 10px 20px;
+        }
+
+        .nhom {
+            margin-bottom: 10px;
+        }
+
+        .nhom>input {
+            height: 25px;
+            width: 100%;
+        }
+
+        .nut {
+            text-align: center;
+        }
+
+        .nut>button {
+            height: 30px;
+            background-color: rgb(99, 99, 244);
+            border: none;
+            color: white;
+            margin: auto;
+        }
+
+        .nut>button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="head">
+                <h2>ĐĂNG NHẬP</h2>
+            </div>
+            <div class="box-content">
+                <form action="" onsubmit="return kiemtra()">
+                    <div class="nhom">
+                        <label for="">Tên đăng nhập</label><br>
+                        <input type="text" id="username">
+                    </div>
+                    <div class="nhom">
+                        <label for="">Mật khẩu</label><br>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="nhom">
+                        <label for="">Nhập lại mật khẩu</label><br>
+                        <input type="password" id="repassword">
+                    </div>
+                    <div class="nut">
+                        <button>Đăng Nhập</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function kiemtra() {
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            var repassword = document.getElementById("repassword");
+            if (username.value == "" && password.value == "" && repassword.value == "") {
+                alert("Vui lòng nhập tất cả các trường");
+                return false;
+            }
+            if (CheckString(username.value) == false || CheckNumber(username.value) == false) {
+                alert("Tên đăng nhập phải bao gồm cả số và chữ");
+                return false;
+            }
+            if (password.value.length < 6) {
+                alert("Mật khẩu phải trên 6 kí tự");
+                return false;
+            }
+            if (password.value != repassword.value) {
+                alert("Mật khẩu nhập lại phải khớp với mật khẩu");
+                return false;
+            }
+        }
+        function CheckString(string) {
+            let pattern = /[a-zA-Z]/g;
+            return pattern.test(string);
+        }
+        function CheckNumber(string) {
+            let pattern = /[0-9]/g;
+            return pattern.test(string);
+        }
+    </script>
+</body>
+
+</html>

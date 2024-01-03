@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkMonth() {
+            var monthInput = document.getElementById("month");
+            var yearInput = document.getElementById("year");
+            var resultElement = document.getElementById("result");
+
+            var month = parseInt(monthInput.value);
+            var year = parseInt(yearInput.value);
+
+            if (month && year && !isNaN(month) && !isNaN(year)) {
+                var daysInMonth = new Date(year, month, 0).getDate();
+
+                resultElement.innerText = "Tháng " + month + " năm " + year + " có " + daysInMonth + " ngày.";
+            } else {
+                resultElement.innerText = "Vui lòng nhập tháng và năm hợp lệ!";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <p>Nhập tháng: <input type="number" id="month"></p>
+    <p>Nhập năm: <input type="number" id="year"></p>
+    <button onclick="checkMonth()">Kiểm tra</button>
+    <p id="result"></p>
+
+</body>
+</html>

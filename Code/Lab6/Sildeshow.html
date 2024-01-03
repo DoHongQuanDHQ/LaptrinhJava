@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/1.JPG" id="anh" onmouseover="fover()" onmouseout="fout()">
+    <script>
+        var over = new Image();
+        over.src = "img/1.jpg";
+        var out = new Image();
+        out.src = "img/2.jpg";
+
+        function fover() {
+            var anh = document.getElementById("anh");
+            anh.src = over.src;
+        }
+
+        function fout() {
+            var and = document.getElementById("anh");
+            anh.src = out.src;
+        }
+    </script>
+</body>
+
+</html>

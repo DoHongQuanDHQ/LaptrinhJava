@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+      button {
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+
+        margin: 20px;
+      }
+  </style>
+</head>
+<body>
+    <button id="pass-filter">Điểm Đỗ</button>
+    <button id="fail-filter">Điểm Trượt</button>
+    <table border="2" id="score-table">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th> Điểm JS1</th>
+            <th>Điểm JS2</th>
+            <th>Điểm trung bình</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Nguyễn Văn Bình</td>
+            <td>8</td>
+            <td>9</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Vũ Thị Hạnh</td>
+            <td>7</td>
+            <td>7</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Trần Văn Bình</td>
+            <td>4</td>
+            <td>5</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function() {
+        // Tính điểm trung bình và hiển thị
+        function calculateAverage(row) {
+            var js1 = parseFloat(row.find("td:eq(3)").text());
+            var js2 = parseFloat(row.find("td:eq(4)").text());
+            var average = (js1 + js2) / 2;
+            row.find("td:eq(5)").text(average.toFixed(2));
+        }
+
+        // Xử lý sự kiện khi trang được tải
+        $("#score-table tbody tr").each(function() {
+            calculateAverage($(this));
+        });
+
+        // Xử lý sự kiện khi chọn lọc theo điểm đỗ
+        $("#pass-filter").click(function() {
+            $("#score-table tbody tr").each(function() {
+            var average = parseFloat($(this).find("td:eq(2)").text());
+            if (average >= 5) {
+                $(this).css("background-color", "yellow");
+            } else {
+                $(this).css("background-color", "");
+            }
+            });
+        });
+
+        // Xử lý sự kiện khi chọn lọc theo điểm trượt
+        $("#fail-filter").click(function() {
+            $("#score-table tbody tr").each(function() {
+            var average = parseFloat($(this).find("td:eq(2)").text());
+            if (average < 5) {
+                $(this).css("background-color", "red");
+            } else {
+                $(this).css("background-color", "");
+            }
+            });
+        });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+.a {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    color: rgb(83, 37, 37);
+  border: 2px solid #DC143C;
+}
+.a:hover {
+    background-color:cadetblue;
+    color: white;
+  }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkNumber(){
+            // Lấy giá trị từ ô input với id là "numberInput"
+            var number = document.getElementById("numberInput").value;
+
+            if (number>0) {
+                // Kiểm tra xem biến là số dương hay số âm
+                document.getElementById("result").innerHTML="Gia tri la so duong";
+            } else if (number<0) {
+                
+                document.getElementById("result").innerHTML="Gia tri la so am";
+                
+            }else{
+                document.getElementById("result").innerHTML="Gia tri la 0";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Kiem tra so duong va so am</h1>
+    <input type="number" id="numberInput">
+    
+    <button onclick="checkNumber()">Kiem Tra</button>
+
+    <p id="result"></p>
+</body>
+</html>

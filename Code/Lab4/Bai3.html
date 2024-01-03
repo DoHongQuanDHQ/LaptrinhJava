@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <table border='0' cellspacing='0' cellpadding='10'>
+            <tr style="font-weight: bold">
+                <td><input type='checkbox' name='name[]' id='check_all' value='' /></td>
+                <td>Tai Nghe</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td><input type='checkbox' name='name[]' id='check_all' value='' /></td>
+                <td>Dây sạc</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td><input type='checkbox' name='name[]' id='check_all' value='' /></td>
+                <td>Ốp Điện Thoại</td>
+            </tr>
+            <!-- <tr style="font-weight: bold">
+                <td><input type='checkbox' name='name[]' id='check_all' value='' /></td>
+                <td></td>
+            </tr> -->
+        </table>
+        <br/>
+        <br/>
+        <input type="button" id="btn1" value="Chọn hết"/>
+        <input type="button" id="btn2" value="Bỏ chọn"/>
+         
+         
+        <script language="javascript">
+            document.getElementById("btn1").onclick = function () 
+            {
+                var checkboxes = document.getElementsByName('name[]');
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = true;
+                }
+            };
+            document.getElementById("btn2").onclick = function () 
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+ 
+                // Lặp và thiết lập Uncheck
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = false;
+                }
+            };
+ 
+        </script>
+    </body>
+</html>

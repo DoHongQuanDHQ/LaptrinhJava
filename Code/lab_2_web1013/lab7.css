@@ -1,0 +1,89 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+.wrapper{
+    width: 980px;
+    margin: auto;
+}
+.banner{
+    height: 300px;
+    border: 1px solid black;
+}
+.banner-img{
+    width: 100%;
+    height: 297px;
+}
+.nav-main{
+    height: 40px;
+    background: orangered;
+}
+.cate{
+    padding: 15px 0;
+    border-bottom: 1px solid green;
+    font-variant: small-caps;
+    color: green;
+    font-size: 22px;
+    padding-left: 15px;
+}
+.news{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    margin-top: 15px;
+}
+.news-item{
+    height: 255px;
+    border: 1 solid brown;
+}
+.botton{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 15px;
+    margin: 15px 0;
+}
+.botton-item{
+    height: 50px;
+    background: black;
+}
+.footer-main{
+    height: 50px;
+    background: rgb(0, 0, 0);
+}
+.menu-phu li{
+    list-style: url(imagess.lab7/lavang.png);
+    list-style-position: inside;
+    line-height: 35px;
+    padding-left: 15px;
+}
+.menu-phu li a{
+    color: orangered ; text-decoration: none;
+}
+.menu-phu li:hover{
+    list-style: url(imagess.lab7/laxanh.png);
+    list-style-position: inside;
+}
+.menu-phu li a:hover{
+    color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

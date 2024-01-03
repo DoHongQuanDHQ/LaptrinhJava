@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        
+
+            font-size: 14px;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        p.anh{
+        border-style: solid;
+        border-color: black;
+        width: 500px;
+        }
+    </style>
+</head>
+<body onload="auto()">
+
+    <p class="anh">
+        <button onclick="start()"> Start</button>
+        <button onclick="stop()"> Stop</button>
+        <br>
+        <img src="img/0.JPG" id="anh">
+    </p>
+    
+    
+    <script>
+        var img = [];
+        for(var i=0 ; i<6; i++){
+            img[i] = new Image();
+            img[i].src = "img/"+ i+ ".jpg";
+        }
+        var index = 0;
+
+        
+        
+        function start(){
+            index ++;
+            if(index == img.length)
+            index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+            t = setTimeout("start()", 100);
+        }
+
+        function stop(){
+            clearTimeout(t);
+        }
+        // auto
+        // function auto(){
+        //     setInterval("start()",1000);
+        // }
+    </script>
+</body>
+</html>

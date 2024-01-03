@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select id="monhoc">
+      <option value="">--Chọn môn học--</option>
+      <option value="Anh">Anh</option>
+      <option value="Văn">Văn</option>
+      <option value="Sử">Sử</option>
+      <option value="Địa">Địa</option>
+    </select>
+  
+    <p id="ketqua"></p>
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const selectMonHoc = document.getElementById("monhoc");
+        const ketQua = document.getElementById("ketqua");
+
+        selectMonHoc.addEventListener("change", function() {
+            const monHocDuocChon = selectMonHoc.value;
+            if (monHocDuocChon === "") {
+            ketQua.textContent = "Vui lòng chọn môn học!";
+            } else {
+            ketQua.textContent = "Bạn đã chọn môn học: " + monHocDuocChon;
+            }
+        });
+        });
+    </script>
+</body>
+</html>

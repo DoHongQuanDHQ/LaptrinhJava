@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="baithem.css">
+    <title>Document</title>
+    <script>
+        // email phải chứa ký tự '@' và '.'
+        // Phải có ít nhất một ký tự trước và sau '@'
+        // Phải có ít nhất hai ký tự sau '.' (dấu chấm).
+        function validatEemail() {
+             var x = document.myform.email.value;
+             var dt = document.myform.sdt.value;
+             var pattern=new RegExp("0\\d{9,10}","g")
+             var cm = document.myform.cmnd.value;
+             var patterncm=new RegExp("\\d{11}","g")
+            var a = x.indexOf("@");
+            var dot = x.lastIndexOf(".");
+            if (a < 1 || dot < (a + 2)
+                || (dot + 2) >= x.length) {
+                alert("Nhập lại email.");
+                return false;
+            }
+            if(!dt.match(pattern)){
+                alert("Nhập lại sdt.");
+                return false;
+            }
+            if(!cm.match(patterncm)||isNaN(cm)==true){
+                alert("Nhập lại cmnd.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myform"  action="#" onsubmit="return validatEemail();">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" name="email" value="">
+                </td>
+            </tr>
+            <tr>
+                <td>SDT</td>
+                <td>
+                    <input type="text" name="sdt" value="">
+                </td>
+            </tr>
+            <tr>
+                <td>SCMND</td>
+                <td>
+                    <input type="text" name="cmnd" value="">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input class="a"  type="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+               
+    </form>
+</body>
+
+</html>
